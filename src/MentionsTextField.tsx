@@ -51,6 +51,12 @@ interface MentionsTextFieldBaseProps<T extends BaseSuggestionData> {
      * @default 'primary.light'
      */
     highlightColor?: string;
+
+    /**
+     * The width of the suggestions overlay component.
+     * @default '300px'
+     */
+    suggestionsOverlayWidth?: string;
 }
 
 export type MentionsTextFieldProps<
@@ -91,7 +97,14 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
         input.setSelectionRange(selectionStart, selectionEnd);
     }, [selectionStart, selectionEnd, inputRef]);
 
-    const { value, defaultValue: _defaultValue, dataSources, highlightColor, ...others } = props;
+    const {
+        value,
+        defaultValue: _defaultValue,
+        dataSources,
+        highlightColor,
+        suggestionsOverlayWidth,
+        ...others
+    } = props;
     const finalValue = value !== undefined ? value : stateValue;
 
     const handleBlur = () => {
@@ -234,6 +247,7 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
                 loading={false}
                 onSelect={addMention}
                 onMouseDown={handleSuggestionsMouseDown}
+                width={suggestionsOverlayWidth || '300px'}
             />
         </>
     );

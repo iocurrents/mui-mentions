@@ -46,10 +46,13 @@ interface SuggestionsOverlayProps<T extends BaseSuggestionData> {
 
     /** Callback invoked on mouse down in the suggestions overlay. */
     onMouseDown: () => void;
+
+    /** The width of the suggestions overlay. */
+    width: string;
 }
 
 function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOverlayProps<T>) {
-    const { value, dataSources, selectionStart, selectionEnd, cursorRef, onSelect, onMouseDown } = props;
+    const { value, dataSources, selectionStart, selectionEnd, cursorRef, onSelect, onMouseDown, width } = props;
     const ulElement = useRef<HTMLUListElement>(null);
     const [suggestions, setSuggestions] = useState<SuggestionsMap<T>>({});
     const [focusIndex, setFocusIndex] = useState(0);
@@ -220,7 +223,7 @@ function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOver
             />
             <Popper open={true} anchorEl={cursorRef.current} placement='bottom-start' sx={{ zIndex: 2 }}>
                 <Paper elevation={8} onMouseDown={onMouseDown}>
-                    <List ref={ulElement} sx={{ width: '300px', maxHeight: '40vh', overflow: 'auto' }}>
+                    <List ref={ulElement} sx={{ width, maxHeight: '40vh', overflow: 'auto' }}>
                         {renderedSuggestions.length > 0
                             ? renderedSuggestions
                             : loading && (

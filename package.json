@@ -1,7 +1,7 @@
 {
-    "name": "@jackstenglein/mui-mentions",
+    "name": "@iocurrents/mui-mentions",
     "version": "0.1.8",
-    "description": "@mention people in a MUI TextField",
+    "description": "@mention people in a MUI TextField. Forked for ioCurrents.",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
@@ -19,7 +19,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jackstenglein/mui-mentions.git"
+        "url": "git+https://github.com/iocurrents/mui-mentions.git"
     },
     "keywords": [
         "react",
@@ -28,7 +28,10 @@
         "MUI",
         "textfield"
     ],
-    "author": "Jack Stenglein",
+    "author": "ioCurrents",
+    "contributors": [
+        "Jack Stenglein"
+    ],
     "license": "MIT",
     "devDependencies": {
         "@emotion/react": "^11.11.4",
