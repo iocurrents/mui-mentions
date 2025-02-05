@@ -22,7 +22,7 @@ const Mention: React.FC<MentionProps> = ({ display, color }) => {
                     bottom: 0,
                     right: '-1px',
                     backgroundColor: (theme) => getColor(theme.palette.mode, color),
-                    borderRadius: '3px',
+                    borderRadius: '0px',
                     color: 'transparent',
                 }}
             ></Box>

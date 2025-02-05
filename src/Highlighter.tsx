@@ -100,7 +100,7 @@ function Highlighter<T extends BaseSuggestionData>(props: HighlighterProps<T>): 
                     whiteSpace: multiline ? 'pre-wrap' : 'pre',
                     overflow: 'hidden',
                     overscrollBehavior: 'none',
-                    zIndex: -1,
+                    zIndex: 0,
                 }}
             >
                 {components}

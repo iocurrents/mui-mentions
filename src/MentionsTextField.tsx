@@ -220,7 +220,7 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
         onSelect: handleSelect,
         onBlur: handleBlur,
         inputProps: {
-            sx: { overscrollBehavior: 'none' },
+            sx: { overscrollBehavior: 'none', zIndex: 1 },
         },
     };
 
