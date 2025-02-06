@@ -1,5 +1,5 @@
 {
-    "name": "@iocurrents/mui-mentions",
+    "name": "@eric-iocurrents/mui-mentions",
     "version": "1.0.1",
     "description": "@mention people in a MUI TextField. Forked for ioCurrents.",
     "main": "./dist/cjs/index.js",

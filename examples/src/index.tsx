@@ -44,7 +44,7 @@ const App = () => {
             <Container sx={{ py: 5 }}>
                 <Stack spacing={5}>
                     <Stack spacing={1}>
-                        <Typography variant='h4'>@iocurrents/mui-mentions</Typography>
+                        <Typography variant='h4'>@eric-iocurrents/mui-mentions</Typography>
                         <Typography>
                             Mention people in a{' '}
                             <Link href='https://mui.com/material-ui/react-text-field/'>MUI TextField</Link>.
