@@ -57,6 +57,12 @@ interface MentionsTextFieldBaseProps<T extends BaseSuggestionData> {
      * @default '300px'
      */
     suggestionsOverlayWidth?: string;
+
+    /**
+     * The disablePortal prop of the suggestions overlay component.
+     * @default false
+     */
+    suggestionsOverlayDisablePortal?: boolean;
 }
 
 export type MentionsTextFieldProps<
@@ -103,6 +109,7 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
         dataSources,
         highlightColor,
         suggestionsOverlayWidth,
+        suggestionsOverlayDisablePortal,
         ...others
     } = props;
     const finalValue = value !== undefined ? value : stateValue;
@@ -248,6 +255,7 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
                 onSelect={addMention}
                 onMouseDown={handleSuggestionsMouseDown}
                 width={suggestionsOverlayWidth || '300px'}
+                disablePortal={suggestionsOverlayDisablePortal || false}
             />
         </>
     );

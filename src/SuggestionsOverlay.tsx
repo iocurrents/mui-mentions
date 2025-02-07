@@ -49,10 +49,14 @@ interface SuggestionsOverlayProps<T extends BaseSuggestionData> {
 
     /** The width of the suggestions overlay. */
     width: string;
+
+    /** Pass the disablePortal prop value to the SuggestionsOverlay component. */
+    disablePortal: boolean;
 }
 
 function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOverlayProps<T>) {
-    const { value, dataSources, selectionStart, selectionEnd, cursorRef, onSelect, onMouseDown, width } = props;
+    const { value, dataSources, selectionStart, selectionEnd, cursorRef, onSelect, onMouseDown, width, disablePortal } =
+        props;
     const ulElement = useRef<HTMLUListElement>(null);
     const [suggestions, setSuggestions] = useState<SuggestionsMap<T>>({});
     const [focusIndex, setFocusIndex] = useState(0);
@@ -221,7 +225,13 @@ function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOver
                 setFocusIndex={setFocusIndex}
                 setScrollFocusedIntoView={setScrollFocusedIntoView}
             />
-            <Popper open={true} anchorEl={cursorRef.current} placement='bottom-start' sx={{ zIndex: 2 }}>
+            <Popper
+                open={true}
+                anchorEl={cursorRef.current}
+                placement='bottom-start'
+                sx={{ zIndex: 2 }}
+                disablePortal={disablePortal}
+            >
                 <Paper elevation={8} onMouseDown={onMouseDown}>
                     <List ref={ulElement} sx={{ width, maxHeight: '40vh', overflow: 'auto' }}>
                         {renderedSuggestions.length > 0
