@@ -63,6 +63,12 @@ interface MentionsTextFieldBaseProps<T extends BaseSuggestionData> {
      * @default false
      */
     suggestionsOverlayDisablePortal?: boolean;
+
+    /**
+     * The fontFamily to use for the text input and highlighter sizing.
+     * @default 'inherit'
+     */
+    fontFamily?: string | 'inherit';
 }
 
 export type MentionsTextFieldProps<
@@ -227,7 +233,7 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
         onSelect: handleSelect,
         onBlur: handleBlur,
         inputProps: {
-            sx: { overscrollBehavior: 'none', zIndex: 1 },
+            sx: { overscrollBehavior: 'none', zIndex: 1, fontFamily: props.fontFamily },
         },
     };
 
@@ -243,6 +249,7 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
                 inputRef={inputRef}
                 multiline={inputProps.multiline}
                 color={highlightColor || props.color}
+                fontFamily={props.fontFamily}
             />
             <TextField inputRef={(ref) => setInputRef(ref)} {...inputProps} />
             <SuggestionsOverlay

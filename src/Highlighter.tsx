@@ -31,10 +31,14 @@ interface HighlighterProps<T extends BaseSuggestionData> {
 
     /** The color of the highlight. */
     color?: string;
+
+    /** The font family of the highlight. */
+    fontFamily?: string | 'inherit';
 }
 
 function Highlighter<T extends BaseSuggestionData>(props: HighlighterProps<T>): ReactNode {
-    const { highlighterRef, cursorRef, selectionEnd, selectionStart, value, dataSources, multiline } = props;
+    const { highlighterRef, cursorRef, selectionEnd, selectionStart, value, dataSources, multiline, fontFamily } =
+        props;
     const components: JSX.Element[] = [];
 
     const handleMention = (_markup: string, index: number, _plainTextIndex: number, id: string, display: string) => {
@@ -92,6 +96,7 @@ function Highlighter<T extends BaseSuggestionData>(props: HighlighterProps<T>): 
             <Box
                 ref={highlighterRef}
                 sx={{
+                    fontFamily,
                     position: 'absolute',
                     top: `${rect.y}px`,
                     left: `${rect.x}px`,
